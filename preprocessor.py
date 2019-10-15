@@ -6,15 +6,14 @@ import itertools
 import copy as cp
 import PIL.Image as I
 from numpy import *
-from .calculation_recorder.calculation_recorder import CalculationRecorder
-from .encoder_decoder import encoder_decoder 
-ed = encoder_decoder
+from naughty_parrot.calculation_recorder import CalculationRecorder
+from naughty_parrot.encoder_decoder import *
 
 class Preprocessor:
     def __init__(self, path, x_calc_rec=None, y_calc_rec=None):
         self.support_format_lst = ['jpg', 'png', 'bmp']
-        self.img_ed = ed.ImageEncoderDecoder()
-        self.csv_ed = ed.CSVEncoderDecoder()
+        self.img_ed = ImageEncoderDecoder()
+        self.csv_ed = CSVEncoderDecoder()
         if isinstance(path, str) and not path.split('.')[-1] in self.support_format_lst:
             self.img = self.img_ed.decode(path)
         elif isinstance(path, str):
