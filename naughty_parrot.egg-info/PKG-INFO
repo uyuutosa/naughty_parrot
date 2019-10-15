@@ -1,0 +1,12 @@
+Metadata-Version: 1.1
+Name: naughty-parrot
+Version: 0.0.0
+Summary: a simple image preprocess tool
+Home-page: https://github.com/uyuutosa/naughty_parrot
+Author: uyuutosa
+Author-email: sayu819@gmail.com
+License: MIT
+Description: UNKNOWN
+Keywords: preprocess
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.6

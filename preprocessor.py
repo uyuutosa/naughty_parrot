@@ -71,6 +71,19 @@ class Preprocessor:
         return self.csv_ed.decode(response['Body'].read())
         #return pd.read_csv(io.BytesIO(response['Body'].read()), header=0, index_col=0)
 
+    def centerCrop(self, x=None, y=None):
+        w, h = self.img.size
+        img = self.img.crop((w // 2 - x // 2,
+                             h // 2 - y // 2,
+                             w // 2 + x // 2,
+                             h // 2 + y // 2))
+
+        x_calc_rec =  self.x_calc_rec - (w // 2 - x // 2)
+        y_calc_rec =  self.y_calc_rec - (h // 2 - y // 2)
+        return Preprocessor(img.copy(),
+                            x_calc_rec=cp.deepcopy(x_calc_rec),
+                            y_calc_rec=cp.deepcopy(y_calc_rec))
+
     def crop(self, xmin, ymin, xmax, ymax):
         x_calc_rec = self.x_calc_rec - xmin
         y_calc_rec = self.y_calc_rec - ymin
